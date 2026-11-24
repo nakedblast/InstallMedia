@@ -37,7 +37,7 @@ Everything up to "Send for engraving" must happen inside the return window.
 - [ ] **Wi-Fi and Bluetooth**: browsing works; pair the owner's phone or headphones.
 - [ ] **Body**: hinge opens smoothly, holds position, no creak; lid and keyboard deck flex; no dents, scratches, gaps or marks on the white finish; no pressure marks on the screen.
 - [ ] **Charger**: charges, no buzzing or excessive heat.
-- [ ] Optional **stress test** (on the charger): `.\InstallMedia-*.ps1 -Only Stress -StressMinutes 10`. Ask about fan noise and heat over the keyboard; check the result summary.
+- [ ] Optional **stress test** (on the charger): `.\Setup.ps1 -Profile zenbook-s16-um5606g -Only Stress -StressMinutes 10`. Ask about fan noise and heat over the keyboard; check the result summary.
 
 ## 4. Updates
 1. Settings > Windows Update: install everything, including **Advanced options > Optional updates** (drivers). Reboot and repeat until nothing is left. Each reboot drops Quick Assist: the owner reconnects with a new code, and you reopen the admin window.
@@ -52,15 +52,15 @@ Everything up to "Send for engraving" must happen inside the return window.
 1. Ask the owner: **dark mode?** **auto-hide taskbar?** (both reduce OLED wear; auto-hide changes how the taskbar behaves).
 2. Run, adding the chosen options:
    ```powershell
-   .\InstallMedia-*.ps1                      # full profile
-   .\InstallMedia-*.ps1 -Enable DarkMode,AutoHideTaskbar   # with options
+   .\Setup.ps1 -Profile zenbook-s16-um5606g                      # full profile
+   .\Setup.ps1 -Profile zenbook-s16-um5606g -Enable DarkMode,AutoHideTaskbar   # with options
    ```
 3. Go through the bloat list together; enter only the numbers the owner agrees to remove.
 4. Reboot, then verify:
    - [ ] Start, type `weather`: no web results.
    - [ ] **Win + Space** switches ENG / RUS; typing `'` and `"` in Notepad produces them immediately (no accent waiting).
    - [ ] Screen turns off after the set time on battery.
-5. Undo, if ever needed: `.\InstallMedia-*.ps1 -Revert` (or `-Revert -Only Search` etc.). A restore point "InstallMedia before ..." also exists.
+5. Undo, if ever needed: `.\Setup.ps1 -Profile zenbook-s16-um5606g -Revert` (or `-Revert -Only Search` etc.). A restore point "InstallMedia before ..." also exists.
 
 ## 7. Owner's preferences
 - [ ] Default browser; sign in to the browser if wanted.
