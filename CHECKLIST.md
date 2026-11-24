@@ -26,7 +26,7 @@ Everything up to "Send for engraving" must happen inside the return window.
 2. Read the summary: any **FAIL** (model, CPU, RAM, disk, edition) means stop and contact the seller. Check that activation is OK, the serial matches the box and invoice, the battery cycle count is near 0 and health is ~100%, and no devices show errors.
 
 ## 3. Hardware checks (owner's hands, you watching)
-- [ ] **Screen**: full-screen white, black, red, green, blue and mid-grey at low brightness. Look for dead or stuck pixels, bright specks on black, tint blotches or banding on grey.
+- [ ] **Screen**: `.\tools\ScreenTest.ps1` (full-screen white, black, red, green, blue, mid grey, dark grey; click or Space for next, Esc to quit). The owner judges, not you: Quick Assist compresses the picture. They look for dead or stuck pixels, bright specks on black, tint blotches or banding on the greys; repeat the greys at low brightness.
 - [ ] **Touchscreen**: draw lines across the whole screen in Paint, including corners and edges.
 - [ ] **Keyboard**: in Notepad, type every row with and without Shift, then test Fn keys (brightness, volume, mute, keyboard backlight), arrows, Copilot key, Delete/Home/End. Every key matters: these are the caps that get engraved.
 - [ ] **Touchpad**: click both sides, tap, two-finger scroll, three-finger swipe; edges respond.
@@ -60,7 +60,8 @@ Everything up to "Send for engraving" must happen inside the return window.
    - [ ] Start, type `weather`: no web results.
    - [ ] **Win + Space** switches ENG / RUS; typing `'` and `"` in Notepad produces them immediately (no accent waiting).
    - [ ] Screen turns off after the set time on battery.
-5. Undo, if ever needed: `.\Setup.ps1 -Profile zenbook-s16-um5606g -Revert` (or `-Revert -Only Search` etc.). A restore point "InstallMedia before ..." also exists.
+5. Owner changes their mind on an option later: `.\Setup.ps1 -Profile zenbook-s16-um5606g -Only Display -Enable DarkMode` (or `-Revert -Only Display`).
+6. Undo, if ever needed: `.\Setup.ps1 -Profile zenbook-s16-um5606g -Revert` (or `-Revert -Only Search` etc.). The change log lives in `C:\ProgramData\InstallMedia`, so this works from a fresh download too. A restore point "InstallMedia before ..." also exists.
 
 ## 7. Owner's preferences
 - [ ] Default browser; sign in to the browser if wanted.
@@ -74,5 +75,7 @@ Everything up to "Send for engraving" must happen inside the return window.
 ## 8. Before sending for engraving
 - [ ] Photo or PDF of the invoice and the box label (serial) saved somewhere safe (cloud + email to self).
 - [ ] Confirm with the shop: standard **Russian ЙЦУКЕН** layout (Windows "Russian"), not phonetic.
+- [ ] Delete the downloaded tool: `Remove-Item "$env:TEMP\InstallMedia", "$env:TEMP\InstallMedia.zip" -Recurse -Force` (the Desktop report and the change log stay).
+- [ ] Switch the GitHub repo back to private.
 - [ ] Owner signs out or locks the laptop; the shop needs no password.
 - [ ] After engraving: quick look that letters match what Windows types for a few keys (Ф = A, Я = Z, Ж = ;).
