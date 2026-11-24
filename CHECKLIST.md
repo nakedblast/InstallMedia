@@ -3,9 +3,8 @@
 Everything up to "Send for engraving" must happen inside the return window.
 
 ## Before the call (helper)
-1. Build the bundle: `powershell -File tools\Build-Bundle.ps1 -Profile zenbook-s16-um5606g`. Note the printed SHA256.
-2. Upload `dist\InstallMedia-zenbook-s16-um5606g-<version>.ps1` to your own cloud storage and create a share link.
-3. Ask the owner to have ready: the charger, a USB-A stick or mouse, any USB-C device, headphones, and a phone on a video call (so you can see the keyboard and hinge).
+1. Make sure the repo is public (switch it back to private after the call).
+2. Ask the owner to have ready: the charger, a USB-A stick or mouse, any USB-C device, headphones, and a phone on a video call (so you can see the keyboard and hinge).
 
 ## 1. Connect
 1. You: open Quick Assist, choose **Help someone**, sign in with your Microsoft account, and read the code to the owner.
@@ -14,15 +13,17 @@ Everything up to "Send for engraving" must happen inside the return window.
 3. Open Start, type `PowerShell`, choose **Run as administrator**. The owner clicks **Yes** (your view pauses until they do). Use this one window for everything below.
 
 ## 2. Get the tool and audit
-1. In the browser on their laptop, download the bundle from your link to `Downloads`.
-2. In the admin window:
+1. In the admin window:
    ```powershell
-   cd $env:USERPROFILE\Downloads
-   Get-FileHash .\InstallMedia-*.ps1 -Algorithm SHA256   # compare with the build hash
-   Unblock-File .\InstallMedia-*.ps1
-   .\InstallMedia-*.ps1 -AuditOnly
+   Set-ExecutionPolicy -Scope Process Bypass -Force
+   $d = "$env:TEMP\InstallMedia"
+   Invoke-WebRequest https://github.com/nakedblast/InstallMedia/archive/refs/heads/main.zip -OutFile "$d.zip" -UseBasicParsing
+   Expand-Archive "$d.zip" $d -Force
+   cd "$d\InstallMedia-main"
+   .\Setup.ps1 -Profile zenbook-s16-um5606g -AuditOnly
    ```
-3. Read the summary: any **FAIL** (model, CPU, RAM, disk, edition) means stop and contact the seller. Check that activation is OK, the serial matches the box and invoice, the battery cycle count is near 0 and health is ~100%, and no devices show errors.
+   After a reboot: reopen the admin window, run the first line, then `cd "$env:TEMP\InstallMedia\InstallMedia-main"`.
+2. Read the summary: any **FAIL** (model, CPU, RAM, disk, edition) means stop and contact the seller. Check that activation is OK, the serial matches the box and invoice, the battery cycle count is near 0 and health is ~100%, and no devices show errors.
 
 ## 3. Hardware checks (owner's hands, you watching)
 - [ ] **Screen**: full-screen white, black, red, green, blue and mid-grey at low brightness. Look for dead or stuck pixels, bright specks on black, tint blotches or banding on grey.
