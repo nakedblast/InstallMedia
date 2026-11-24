@@ -47,6 +47,10 @@ Everything up to "Send for engraving" must happen inside the return window.
 - [ ] Register the product (warranty) with the owner's email.
 - [ ] Customization > **OLED Care**: Pixel Refresh on, Pixel Shift on, taskbar transparency/auto-hide as the owner prefers.
 - [ ] Customization > Battery: **Battery Care Mode** (charge limit ~80%) if the laptop mostly stays plugged in. Ask the owner.
+- [ ] **Presence sensing** (camera-based): Settings > System > Power & battery > Screen, sleep & hibernate timeouts, or Settings > Privacy & security > Presence sensing (on ASUS it may also sit in MyASUS as Adaptive Dimming / Adaptive Lock).
+  - Turn on **Turn off my screen when I leave**: the best OLED protection, since the screen goes dark within seconds of the owner walking away instead of waiting for the timer.
+  - **Wake when I approach** and **Dim when I look away**: owner's choice. Dimming can annoy someone who reads a paper document beside the laptop.
+  - Test it: owner walks away; the screen should go off in well under a minute.
 
 ## 6. Run the setup profile
 1. Ask the owner: **dark mode?** **auto-hide taskbar?** (both reduce OLED wear; auto-hide changes how the taskbar behaves).
