@@ -1,10 +1,9 @@
 # Plan
 
 ## State
-Tool v1 built on branch `nakedblast/setup-tool` (local only): `Setup.ps1` + engine with journal/exact revert, modules Audit, Search, Keyboard, Display, Bloat, Stress; profiles `base` and `zenbook-s16-um5606g`; single-file bundle via `tools/Build-Bundle.ps1`. Design: `docs/outlines/setup-tool.md`. Call script: `CHECKLIST.md`. Target laptop: ASUS Zenbook S 16 UM5606G (Ryzen AI 9 465, 32 GB, 1 TB, OLED touch, Win11 Pro). Remote channel: Quick Assist. Repo is to be a private GitHub repo (not created yet).
+Tool v1 built on branch `nakedblast/setup-tool` (local only): `Setup.ps1` + engine with journal/exact revert, modules Audit, Search, Keyboard, Display, Bloat, Stress; profiles `base` and `zenbook-s16-um5606g`; single-file bundle via `tools/Build-Bundle.ps1`. Design: `docs/outlines/setup-tool.md`. Call script: `CHECKLIST.md`. Target laptop: ASUS Zenbook S 16 UM5606G (Ryzen AI 9 465, 32 GB, 1 TB, OLED touch, Win11 Pro). Remote channel: Quick Assist. Private GitHub repo: nakedblast/InstallMedia (main + nakedblast/setup-tool pushed; v1 not yet merged to main).
 
 ## Next
-- Create the private GitHub repo and push (needs user go-ahead)
 - Build the bundle, upload to a cloud share link, run the call per `CHECKLIST.md` (inside the return window)
   - Verify on the laptop what the dev machine could not: restore point, HKLM/policy writes, language list apply/restore, powercfg apply/restore, Appx/Win32 removal, admin audit fields
 - Send for engraving after all checks pass
